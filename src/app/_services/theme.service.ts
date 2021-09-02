@@ -8,10 +8,10 @@ export class ThemeService {
   themeChange = new EventEmitter<Theme>();
 
   constructor(@Inject(THEMES) public themes: Theme[], @Inject(ACTIVE_THEME) public theme: string) {
-    const darkModeOn =window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
-      if(darkModeOn){
-        this.setTheme('dark');
-      }
+    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+      // dark mode
+      this.setTheme('dark');
+  }
   }
 
 
